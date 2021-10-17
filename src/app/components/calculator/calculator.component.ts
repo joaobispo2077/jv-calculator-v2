@@ -8,6 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class CalculatorComponent implements OnInit {
   constructor() {}
 
+  removeLastCharFromExpression() {
+    console.log('removeLastCharFromExpression');
+  }
+
+  addExpressionValue(value: string) {
+    console.log('addExpressionValue', value);
+  }
+
+  clearExpression() {
+    console.log('clearExpression');
+  }
+
   ngOnInit(): void {
     console.log('CalculatorComponent');
   }
