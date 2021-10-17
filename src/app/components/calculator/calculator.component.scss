@@ -1,0 +1,118 @@
+.calculator-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input-numbers,
+.buttons {
+  flex: 1;
+  background: var(--shape);
+  border-radius: 0.25rem;
+}
+
+.input-numbers {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: none;
+  color: var(--primary);
+  text-align: right;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.input-numbers:focus {
+  border: var(--primary);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1.25rem;
+  grid-gap: 0.7rem;
+  font-size: 1.8rem;
+}
+
+.button-column {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  width: 100%;
+}
+
+.buttons-operators,
+.button-controllers {
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+  height: 3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary);
+  background: var(--button-background);
+  border: 0;
+  border-radius: 0.5rem;
+  border-bottom: 0.3rem solid var(--action-button-background);
+  transition: border-bottom 150ms ease-in-out, filter 300ms ease-in;
+}
+
+.button:hover {
+  border-bottom: 0 solid var(--action-button-background);
+  filter: brightness(90%);
+}
+
+.button-controllers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.button-controllers {
+  margin-top: 1rem;
+}
+
+.reset,
+.result {
+  height: 3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 0;
+  border-radius: 0.5rem;
+  transition: border-bottom 150ms ease-in-out;
+}
+
+.reset,
+.del {
+  color: var(--tertiary);
+  background: var(--action-button-background);
+  border-bottom: 0.3rem solid var(--action-button-shadow);
+}
+
+.reset:hover,
+.del:hover {
+  border-bottom: 0 solid var(--action-button-shadow);
+  filter: brightness(90%);
+}
+
+.result {
+  background: var(--submit-button);
+  border-bottom: 0.3rem solid var(--soft-submit-button);
+  transition: border-bottom 150ms ease-in-out, filter 300ms ease-in;
+}
+
+.result:hover {
+  border-bottom: 0 solid var(--soft-submit-button);
+  filter: brightness(90%);
+}
+
+@media (max-width: 600px) {
+  .calculator-container,
+  .input-numbers {
+    width: 100%;
+    min-width: 12.5rem;
+  }
+}
