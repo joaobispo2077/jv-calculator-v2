@@ -103,9 +103,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "jv-calculator-v2"
+  "defaultProject": "jv-calculator-v2",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
