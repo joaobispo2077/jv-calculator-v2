@@ -18,7 +18,7 @@ export class CalculatorComponent {
   }
 
   removeLastCharFromExpression() {
-    console.log('removeLastCharFromExpression');
+    this.expression = this.expression.slice(0, -1);
   }
 
   clearExpression() {
