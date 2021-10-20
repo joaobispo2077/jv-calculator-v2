@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { isValidExpression } from 'src/utils/calculator';
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.scss'],
 })
 export class CalculatorComponent {
-  expression = 'sdfsadfasd';
+  expression = '';
 
   constructor() {}
 
@@ -14,7 +15,11 @@ export class CalculatorComponent {
   }
 
   addExpressionValue(value: string) {
-    console.log('addExpressionValue', value);
+    const newExpression = `${this.expression}${value}`;
+
+    if (isValidExpression(newExpression)) {
+      this.expression = newExpression;
+    }
   }
 
   removeLastCharFromExpression() {
