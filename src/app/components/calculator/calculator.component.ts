@@ -1,26 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.scss'],
 })
-export class CalculatorComponent implements OnInit {
+export class CalculatorComponent {
+  expression = 'sdfsadfasd';
+
   constructor() {}
 
-  removeLastCharFromExpression() {
-    console.log('removeLastCharFromExpression');
+  calculate() {
+    alert('calculate');
   }
 
   addExpressionValue(value: string) {
     console.log('addExpressionValue', value);
   }
 
-  clearExpression() {
-    console.log('clearExpression');
+  removeLastCharFromExpression() {
+    console.log('removeLastCharFromExpression');
   }
 
-  ngOnInit(): void {
-    console.log('CalculatorComponent');
+  clearExpression() {
+    this.expression = '';
   }
 }

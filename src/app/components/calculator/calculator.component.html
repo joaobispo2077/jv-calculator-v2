@@ -1,5 +1,5 @@
-<form class="calculator-container">
-  <input class="input-numbers" />
+<form class="calculator-container" (ngSubmit)="calculate()">
+  <input class="input-numbers" disabled [value]="expression" />
   <div class="buttons">
     <div class="buttons-operators">
       <div class="button-column">
@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="button-controllers">
-      <button type="button" class="reset" (click)="clearExpression">
+      <button type="button" class="reset" (click)="clearExpression()">
         RESET
       </button>
       <button type="submit" class="result">=</button>
