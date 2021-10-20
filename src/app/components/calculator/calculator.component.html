@@ -40,7 +40,7 @@
         <button type="button" class="button" (click)="addExpressionValue('3')">
           3
         </button>
-        <button class="button" :disabled="isEmptyExpression" type="button" (click)="addExpressionValue('/')">
+        <button class="button" [disabled]="false" type="button" (click)="addExpressionValue('/')">
           /
         </button>
       </div>
@@ -54,7 +54,7 @@
         <button class="button" type="button" (click)="addExpressionValue('-')">
           -
         </button>
-        <button class="button" :disabled="isEmptyExpression" type="button" (click)="addExpressionValue('x')">
+        <button class="button" [disabled]="false" type="button" (click)="addExpressionValue('x')">
           x
         </button>
       </div>
