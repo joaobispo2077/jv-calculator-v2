@@ -39,7 +39,7 @@ const isValidExpression = (
   expression: string,
   candidateText: string
 ): boolean => {
-  const expressionSymbols = ['+', '-', 'x', '/', ','];
+  const operationsSymbols = ['+', '-', 'x', '/'];
 
   const lastValue = expression.slice(-1);
 
@@ -51,7 +51,7 @@ const isValidExpression = (
   const isValidExpression =
     validExpressionPattern.test(candidateText) && !isCandidateRepeatSymbol;
 
-  const invalidSymbolsAsFirstValue = ['x', '/'];
+  const invalidSymbolsAsFirstValue = ['x', '/', ','];
 
   const isValidFirstValue =
     isValidExpression && !invalidSymbolsAsFirstValue.includes(candidateText);
@@ -61,14 +61,17 @@ const isValidExpression = (
     return isValidFirstValue;
   }
 
+  // const hasMinnorThanTwoCommas = expression.match(/,/g)?.length <= 2;
+
   const hasTwoFactors =
     !!Array.from(expression).find(
       (expressionValue, index) =>
-        expressionSymbols.includes(expressionValue) && index !== 0
-    ) && !expressionSymbols.includes(candidateText);
+        operationsSymbols.includes(expressionValue) && index !== 0
+    ) && operationsSymbols.includes(candidateText);
 
-  return !!isValidExpression;
+  return !!isValidExpression && !hasTwoFactors;
 };
+
 export {
   calculate,
   getOperationBySymbol,
