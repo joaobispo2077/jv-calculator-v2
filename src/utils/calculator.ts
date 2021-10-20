@@ -5,16 +5,11 @@ const expressionSymbols = ['+', '-', 'x', '/', ','];
 function getOperationBySymbol(symbol: MathExpressionSymbols) {
   type MathOperation = (a: number, b: number) => number;
 
-  const multi: MathOperation = (a, b) => a * b;
-  const divide: MathOperation = (a, b) => a / b;
-  const sum: MathOperation = (a, b) => a + b;
-  const subtract: MathOperation = (a, b) => a - b;
-
   const mathOperationBySymbol: Record<MathExpressionSymbols, MathOperation> = {
-    x: multi,
-    '/': divide,
-    '+': sum,
-    '-': subtract,
+    x: (a, b) => Number(`${a}${b}`),
+    '/': (a, b) => Number(`${a}${b}`),
+    '+': (a, b) => Number(`${a}${b}`),
+    '-': (a, b) => Number(`${a}${b}`),
   };
 
   return mathOperationBySymbol[symbol];
