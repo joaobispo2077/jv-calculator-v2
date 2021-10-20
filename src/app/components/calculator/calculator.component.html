@@ -1,5 +1,5 @@
-<form class="calculator-container">
-  <input class="input-numbers" />
+<form class="calculator-container" (ngSubmit)="calculate()">
+  <input class="input-numbers" disabled [value]="expression" />
   <div class="buttons">
     <div class="buttons-operators">
       <div class="button-column">
@@ -40,12 +40,12 @@
         <button type="button" class="button" (click)="addExpressionValue('3')">
           3
         </button>
-        <button class="button" :disabled="isEmptyExpression" type="button" (click)="addExpressionValue('/')">
+        <button class="button" [disabled]="false" type="button" (click)="addExpressionValue('/')">
           /
         </button>
       </div>
       <div class="button-column">
-        <button class="button del" (click)="removeLastCharFromExpression">
+        <button type="button" class="button del" (click)="removeLastCharFromExpression()">
           DEL
         </button>
         <button class="button" type="button" (click)="addExpressionValue('+')">
@@ -54,13 +54,13 @@
         <button class="button" type="button" (click)="addExpressionValue('-')">
           -
         </button>
-        <button class="button" :disabled="isEmptyExpression" type="button" (click)="addExpressionValue('x')">
+        <button class="button" [disabled]="false" type="button" (click)="addExpressionValue('x')">
           x
         </button>
       </div>
     </div>
     <div class="button-controllers">
-      <button type="button" class="reset" (click)="clearExpression">
+      <button type="button" class="reset" (click)="clearExpression()">
         RESET
       </button>
       <button type="submit" class="result">=</button>
