@@ -6,16 +6,16 @@ function getOperationBySymbol(symbol: MathExpressionSymbols) {
   type MathOperation = (a: number, b: number) => number;
 
   const mathOperationBySymbol: Record<MathExpressionSymbols, MathOperation> = {
-    x: (a, b) => Number(`${a}${b}`),
-    '/': (a, b) => Number(`${a}${b}`),
-    '+': (a, b) => Number(`${a}${b}`),
-    '-': (a, b) => Number(`${a}${b}`),
+    x: (a, b) => a * b,
+    '/': (a, b) => a / b,
+    '+': (a, b) => a + b,
+    '-': (a, b) => a - b,
   };
 
   return mathOperationBySymbol[symbol];
 }
 
-function calculate(expression: string) {
+function calculate(expression: string): string {
   const satinizedExpression = expression.replace(/,/, '.').replace(/,/, '');
 
   const foundFirstSymbol = Array.from(satinizedExpression).find(

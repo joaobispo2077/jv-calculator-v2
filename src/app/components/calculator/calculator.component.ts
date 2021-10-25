@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { isValidExpression } from 'src/utils/calculator';
+import { calculate, isValidExpression } from '../../../utils/calculator';
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
@@ -10,8 +10,9 @@ export class CalculatorComponent {
 
   constructor() {}
 
-  calculate() {
-    alert('calculate');
+  calculate(): string {
+    this.expression = calculate(this.expression);
+    return this.expression;
   }
 
   isEmptyExpression(): boolean {
